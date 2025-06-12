@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence
+			version="2.2"
+			xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm
+			http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+			
+			<!-- 
+			<entity class="com.app.entity.Employee" access="FIELD">		//Directly take data from private field (by Reflection API),use when u don't have Setter & Getter
+			 -->
+			<entity class="com.app.entity.Employee" access="PROPERTY">
+				<table name="xemployee"></table>				//this is optional
+				<attributes>
+					<id name="eid">
+						<column name="id"/>						//this is optional
+					</id>
+					<basic name="ename">
+						<column name="name" length="30"/>		//this is optional
+					</basic>
+					<basic name="eaddress">
+						<column name="address" length="90"/>	//this is optional
+					</basic>
+					<basic name="esalary">
+						<column name="salary"/>					//this is optional
+					</basic>
+					
+				</attributes>
+			</entity>
+			
+			
+</persistence>
