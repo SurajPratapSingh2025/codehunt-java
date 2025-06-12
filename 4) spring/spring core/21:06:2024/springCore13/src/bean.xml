@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> 
+        
+        <!-- bean definitions here -->
+        <bean id="acc" class="com.springCore.SetterDI.Account"></bean>
+        
+        <bean id="std" class="com.springCore.SetterDI.Student">
+        	<property name="account" ref="acc"></property>
+        	<property name="url" value="jdbc:mysql"></property>
+        	
+        	<!-- IOC Container will create ArrayList<String> Object -->
+        	<property name="databaseInfo">
+        		<list>
+        			<value>root</value>
+        			<value>root123</value>
+        			<value>com.mysql</value>
+        		</list>
+        	</property>
+        	
+        </bean>
+        
+        
+</beans>

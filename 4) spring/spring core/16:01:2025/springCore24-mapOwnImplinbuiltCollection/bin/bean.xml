@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+	<!-- bean definitions here -->
+	
+	<!-- All Operation Perform on Map -->
+	
+        <!-- 1) Inbuilt Collection
+        			a)	Defulat Method			
+         				i) throgh setter 			
+         		===============================	-->
+         <!-- 
+        <bean id="emp" class="com.app.Employee">
+        	<property name="mapOfBooks">
+        		<map>
+        			<entry key="a1" value="JAVA"></entry>
+        			<entry key="a2" value="PYTHON"></entry>
+        			<entry key="a3" value="JS"></entry>
+        		</map>
+        	</property>
+        </bean>  -->
+        
+        <!-- 1) Inbuilt Collection
+        			a)	Defulat Method			
+         				ii) throgh Constructor 			
+         		===============================	-->
+          <!-- 
+        <bean id="emp" class="com.app.Employee">
+        	<constructor-arg >
+        		<map>
+        			<entry key="a1" value="JAVA"></entry>
+        			<entry key="a2" value="PYTHON"></entry>
+        			<entry key="a3" value="JS"></entry>
+        		</map>
+        	</constructor-arg>
+        </bean> -->
+        
+        <!-- 1) Inbuilt Collection
+        			b)	Own Impl			
+         				i) throgh Standalone List 			
+         		====================================	-->
+        <!-- 
+       <bean id="emp" class="com.app.Employee">
+        	<property name="mapOfBooks" ref="map"></property>
+        	<constructor-arg name="mapOfBooks" ref="map"></constructor-arg>
+        </bean>
+        <util:map id="map" map-class="java.util.HashMap">
+        	<entry key="a1" value="JAVA"></entry>
+        	<entry key="a2" value="PYTHON"></entry>
+        	<entry key="a3" value="JS"></entry>
+        </util:map> -->
+        
+        <!-- 1) Inbuilt Collection
+        			b)	Own Impl			
+         				ii) throgh Seprate Bean Tag (Custom Collection)			
+         		=========================================================	-->
+        		
+        <bean id="emp" class="com.app.Employee">
+        	<!-- <property name="mapOfBooks" ref="mpa"></property> -->
+        	<constructor-arg name="mapOfBooks" ref="map"></constructor-arg>
+        </bean>
+        <bean id="map" class="java.util.HashMap">
+        	<constructor-arg>
+        		<map>	<!-- <list> -->
+        			<entry key="a1" value="JAVA"></entry>
+        			<entry key="a2" value="PYTHON"></entry>
+        			<entry key="a3" value="JS"></entry>
+        		</map>	<!-- </list> -->
+        	</constructor-arg>
+        </bean>
+        
+        
+</beans>
+

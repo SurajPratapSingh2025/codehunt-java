@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+	<!-- bean definitions here -->
+	
+	<!-- different beanid problem solved by using attribute autowire-candidate="false" -->
+	<!-- <bean id="bean1a" class="com.app.Account" autowire-candidate="false">
+		<constructor-arg name="an" value="9090"></constructor-arg>
+		<constructor-arg name="aname" value="bank1"></constructor-arg>
+	</bean>
+	<bean id="bean1b" class="com.app.Account">
+		<constructor-arg name="an" value="9090"></constructor-arg>
+		<constructor-arg name="aname" value="bank2"></constructor-arg>
+	</bean> -->
+	
+	<!-- diffrent beanid & also having many bean but u need to select only then this problem solved by using attribute " primary="true" " -->
+	<bean id="bean1a" class="com.app.Account">
+		<constructor-arg name="an" value="9090"></constructor-arg>
+		<constructor-arg name="aname" value="bank1"></constructor-arg>
+	</bean>
+	<bean id="bean1b" class="com.app.Account" primary="true">
+		<constructor-arg name="an" value="9090"></constructor-arg>
+		<constructor-arg name="aname" value="bank2"></constructor-arg>
+	</bean>
+	<bean id="bean1c" class="com.app.Account">
+		<constructor-arg name="an" value="9090"></constructor-arg>
+		<constructor-arg name="aname" value="bank3"></constructor-arg>
+	</bean>
+	<bean id="bean1d" class="com.app.Account">
+		<constructor-arg name="an" value="9090"></constructor-arg>
+		<constructor-arg name="aname" value="bank4"></constructor-arg>
+	</bean>
+	<bean id="bean1e" class="com.app.Account">
+		<constructor-arg name="an" value="9090"></constructor-arg>
+		<constructor-arg name="aname" value="bank5"></constructor-arg>
+	</bean>
+	<!-- so on upto 100 -->
+	
+	
+	
+	
+	<bean id="ad" class="com.app.Adhaar">
+		<constructor-arg name="adhaarNo" value="9080"></constructor-arg>
+		<constructor-arg name="adhaarName" value="bank2"></constructor-arg>
+	</bean>
+	<bean id="list" class="java.util.LinkedList">
+		<constructor-arg>
+			<list>
+				<value>JAVA</value>
+				<value>PYTHON</value>
+				<value>JS</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="employee" class="com.app.Employee" autowire="byType"></bean>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</beans>
+

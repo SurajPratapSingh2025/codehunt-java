@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> 
+        <!-- bean definitions here -->
+        
+        <!-- All Operation Perform on list -->
+		
+        <!-- 1) Inbuilt Collection
+        			a)	Defulat Method			
+         				i) throgh setter 			
+         	===============================	-->
+         
+        <bean id="emp" class="com.app.Employee">
+        	<property name="defaultListOfBooks">
+        		<list>
+        			<value>JAVA</value>
+        			<value>PYTHON</value>
+        			<value>JS</value>
+        		</list>
+        	</property>
+        </bean>
+        
+       <!-- 1) Inbuilt Collection
+        			a)	Defulat Method			
+         				i) throgh constructor 			
+         	===================================	-->
+        <!-- 
+        <bean id="emp" class="com.app.Employee">
+        	<constructor-arg>
+        		<list>
+        			<value>JAVA</value>
+        			<value>PYTHON</value>
+        			<value>JS</value>
+        		</list>
+        	</constructor-arg>
+        </bean> -->
+        
+        
+        
+</beans>
+

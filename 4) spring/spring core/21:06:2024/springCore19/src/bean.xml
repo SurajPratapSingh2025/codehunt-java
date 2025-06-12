@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> 
+        
+        <!-- bean definitions here -->
+        <bean id="acc1" class="com.springCore.SetterDI.Account"></bean>
+        <bean id="acc2" class="com.springCore.SetterDI.Account"></bean>
+        
+        <bean id="std" class="com.springCore.SetterDI.Student">
+        	<property name="url" value="jdbc:mysql"></property>
+        	
+        	<!-- IOC Container will create LinkedHashMap<String,Account> Object -->
+        	<property name="accinfo">
+        		<map>
+        			<entry key="raju" value-ref="acc1"></entry>
+        			<entry key="kaju" value-ref="acc2"></entry>
+        		</map>
+        	</property>
+        	
+        </bean>
+        
+</beans>
