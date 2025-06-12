@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+	<!-- bean definitions here -->
+	
+	<bean id="account1" class="com.app.Account">
+		<constructor-arg name="an" value="9090"></constructor-arg>
+		<constructor-arg name="aname" value="bank1"></constructor-arg>
+	</bean>
+	<!-- <bean id="account2" class="com.app.Account">
+		<constructor-arg name="an" value="9090"></constructor-arg>
+		<constructor-arg name="aname" value="bank1"></constructor-arg>
+	</bean><bean id="account3" class="com.app.Account">
+		<constructor-arg name="an" value="9090"></constructor-arg>
+		<constructor-arg name="aname" value="bank1"></constructor-arg>
+	</bean> -->
+	
+	<!-- Conclusion:: byName autowire failed(Abiguity occur So, give output null) for multiple data -->
+	
+	<bean id="adhaar" class="com.app.Adhaar">
+		<constructor-arg name="adhaarNo" value="9080"></constructor-arg>
+		<constructor-arg name="adhaarName" value="bank2"></constructor-arg>
+	</bean>
+	<bean id="listOfBooks" class="java.util.LinkedList">
+		<constructor-arg>
+			<list>
+				<value>JAVA</value>
+				<value>PYTHON</value>
+				<value>JS</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="employee" class="com.app.Employee" autowire="byName"></bean>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</beans>
+

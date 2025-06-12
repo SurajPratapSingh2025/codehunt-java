@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> 
+        <!-- bean definitions here -->
+        
+        
+        <bean id="controller" class="com.app.controller.Controller">
+        	<property name="service" ref="service"></property>
+        </bean>
+        <bean id="service" class="com.app.service.MyService">
+        	<property name="dao" ref="dao"></property>
+        </bean>
+        <bean id="dao" class="com.app.dao.Dao"></bean>
+        
+        <bean id="" class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"></bean>
+        
+        <bean id="" class="com.app.BeanPostProcessorImpl"></bean>
+</beans>
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> 
+        
+        <!-- bean definitions here -->
+        <bean id="accinfo" class="com.springCore.SetterDiAutowiring.Account"></bean>
+        <util:list id="listOfBooks" list-class="java.util.LinkedList">
+        	<value>HC VERMA</value>
+        	<value>LET US C</value>
+        	<value>JAVA C R</value>
+        </util:list>
+        <bean id="car" class="com.springCore.SetterDiAutowiring.Car"></bean>
+        <bean id="std" class="com.springCore.SetterDiAutowiring.Student" autowire="byName"></bean>
+
+        
+</beans>

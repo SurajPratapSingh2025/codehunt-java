@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+	<!-- bean definitions here -->
+	
+	<!-- 1) Inbuilt Collection
+        			a)	Defulat Method			
+         				i) through setter 			
+         	===============================	-->
+        <!-- 
+        <bean id="emp" class="com.app.Employee">
+        	<property name="defaultListOfBooks">
+        		<list>
+        			<value>JAVA</value>
+        			<value>PYTHON</value>
+        			<value>JS</value>
+        		</list>
+        	</property>
+        </bean> -->
+        
+       <!-- 1) Inbuilt Collection
+        			a)	Defulat Method			
+         				i) through Constructor 			
+         	===============================	-->
+        <!-- 
+        <bean id="emp" class="com.app.Employee">
+        	<constructor-arg>
+        		<list>
+        			<value>JAVA</value>
+        			<value>PYTHON</value>
+        			<value>JS</value>
+        		</list>
+        	</constructor-arg>
+        </bean> -->
+        
+        
+        <!-- 1) Inbuilt Collection
+        			b)	Own Impl			
+         				i) Standalone List
+         	===============================	-->
+       <!--  
+       <bean id="emp" class="com.app.Employee">
+        	<constructor-arg name="defaultListOfBooks" ref="list"></constructor-arg>
+        </bean>
+        <util:list id="list" list-class="java.util.LinkedList">
+        	<value>JAVA</value>
+        	<value>PYTHON</value>
+        	<value>JS</value>
+        	
+        </util:list> -->
+        
+        
+         <!-- 1) Inbuilt Collection
+        			b)	Own Impl			
+         				i) Seprate Bean Tag (Custom Collection)
+         	=====================================================	-->
+         <!-- 
+        <bean id="emp" class="com.app.Employee">
+        	<constructor-arg name="defaultListOfBooks" ref="list"></constructor-arg>
+        </bean>
+        <bean id="list" class="java.util.LinkedList">
+        	<constructor-arg>
+        		<list>
+        			<value>JAVA</value>
+        			<value>PYTHON</value>
+        			<value>JS</value>
+        			
+        		</list>
+        	</constructor-arg>
+        </bean> -->
+        
+        <!-- 2) UserDefined Collection
+        			a)	Defulat Method			
+         				i) through setter 			
+         	===============================	-->
+	<!--
+	 <bean id="acc1" class="com.app.Account">
+		<constructor-arg name="an" value="9090"></constructor-arg>
+		<constructor-arg name="aname" value="bank1"></constructor-arg>
+	</bean>
+	<bean id="acc2" class="com.app.Account">
+		<constructor-arg name="an" value="8080"></constructor-arg>
+		<constructor-arg name="aname" value="bank2"></constructor-arg>
+	</bean>
+	
+	<bean id="emp" class="com.app.Employee">
+		<property name="defaultListOfAccounts">
+			<list>
+				<ref bean="acc1"/>
+				<ref bean="acc2"/>
+			</list>
+		</property>
+	</bean> -->
+	
+	
+	 <!-- 2) UserDefined Collection
+        			a)	Defulat Method			
+         				ii) through Constructor 			
+         	===================================	-->
+         <!-- 
+		<bean id="acc1" class="com.app.Account">
+			<constructor-arg name="an" value="9090"></constructor-arg>
+			<constructor-arg name="aname" value="bank1"></constructor-arg>
+		</bean>
+		<bean id="acc2" class="com.app.Account">
+			<constructor-arg name="an" value="8080"></constructor-arg>
+			<constructor-arg name="aname" value="bank2"></constructor-arg>
+		</bean>
+		<bean id="emp" class="com.app.Employee">
+			<constructor-arg name="defaultListOfAccounts">
+				<list>
+					<ref bean="acc1"/>
+					<ref bean="acc2"/>
+				</list>
+			</constructor-arg>
+		</bean> -->
+	
+	<!-- 2) UserDefined Collection
+        			b)	Own Impl			
+         				i) Standalone List
+         	================================	-->
+		<!-- 
+		<bean id="acc1" class="com.app.Account">
+			<constructor-arg name="an" value="9090"></constructor-arg>
+			<constructor-arg name="aname" value="bank1"></constructor-arg>
+		</bean>
+		<bean id="acc2" class="com.app.Account">
+			<constructor-arg name="an" value="8080"></constructor-arg>
+			<constructor-arg name="aname" value="bank2"></constructor-arg>
+		</bean>
+		<bean id="emp" class="com.app.Employee">
+			<constructor-arg name="defaultListOfAccounts" ref="list"></constructor-arg>
+		</bean>
+		<util:list id="list" list-class="java.util.LinkedList">
+			<ref bean="acc1"/>
+			<ref bean="acc2"/>
+		</util:list> -->
+	
+	<!-- 2) UserDefined Collection
+        			b)	Own Impl			
+         				ii) Seprate Bean Tag (Custom Collection)
+         	====================================================	-->
+		<bean id="acc1" class="com.app.Account">
+			<constructor-arg name="an" value="9090"></constructor-arg>
+			<constructor-arg name="aname" value="bank1"></constructor-arg>
+		</bean>
+		<bean id="acc2" class="com.app.Account">
+			<constructor-arg name="an" value="8080"></constructor-arg>
+			<constructor-arg name="aname" value="bank2"></constructor-arg>
+		</bean>
+		<bean id="emp" class="com.app.Employee">
+			<constructor-arg name="defaultListOfAccounts" ref="list"></constructor-arg>
+		</bean>
+		<bean id="list" class="java.util.LinkedList">
+			<constructor-arg>
+				<list>
+					<ref bean="acc1"/>
+					<ref bean="acc2"/>
+				</list>
+			</constructor-arg>
+		</bean>
+		
+
+</beans>
+

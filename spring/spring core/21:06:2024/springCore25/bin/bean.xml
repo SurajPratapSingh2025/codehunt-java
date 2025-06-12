@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> 
+        
+        <!-- bean definitions here -->
+        <bean id="superbean" abstract="true">
+        	<constructor-arg name="headOffice" value="london"></constructor-arg>
+        	<constructor-arg name="listOfServiceCountry" ref="googleService"></constructor-arg>
+        	
+        </bean>
+        
+        <util:list id="googleService" list-class="java.util.LinkedList">
+        	<value>INDIA</value>
+        	<value>USA</value>
+        	<value>CANADA</value>
+        	
+        </util:list>
+        
+        <!-- =============================================================================================== -->
+        
+        <bean id="google" class="com.springCore.BeanInheritance.Google" parent="superbean">
+        	<constructor-arg name="id" value="111"></constructor-arg>
+        	<constructor-arg name="extra" value="check"></constructor-arg>
+        	
+        </bean>
+
+        <!-- ====================================================================================== -->
+        
+		<!-- <bean id="meta" class="com.springCore.BeanInheritance.Meta" parent="google"> -->
+        <bean id="meta" class="com.springCore.BeanInheritance.Meta" parent="superbean">
+        	<constructor-arg name="id" value="111"></constructor-arg>
+        	<constructor-arg name="empEmailName" ref="metaEmp"></constructor-arg>
+        	       	
+        </bean>
+        
+        <util:map id="metaEmp" map-class="java.util.HashMap">
+        	<entry key="raju@gmail.com" value="raju"></entry>
+        	<entry key="kaju@gmail.com" value="kaju"></entry>
+        	<entry key="maju@gmail.com" value="maju"></entry>
+        </util:map>       
+        
+</beans>

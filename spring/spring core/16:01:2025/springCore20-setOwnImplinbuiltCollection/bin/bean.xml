@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+	<!-- bean definitions here -->
+	
+	<!-- All Operation Perform on Set -->
+	
+	<!-- 1) Inbuilt Collection
+        			a)	Defulat Method			
+         				i) throgh setter 			
+         		===============================	-->
+        <!-- 
+        <bean id="emp" class="com.app.Employee">
+        	<property name="setOfDefaultBooks">
+        		<set>
+        			<value>JAVA</value>
+        			<value>PYTHON</value>
+        			<value>JS</value>
+        		</set>
+        	</property>
+        </bean> -->
+        
+        <!-- 1) Inbuilt Collection
+        			a)	Defulat Method			
+         				ii) throgh Constructor 			
+         		===============================	-->
+        <!-- 
+        <bean id="emp" class="com.app.Employee">
+        	<constructor-arg>
+        		<set>
+        			<value>JAVA</value>
+        			<value>PYTHON</value>
+        			<value>JS</value>
+        		</set>
+        	</constructor-arg>
+        </bean> -->
+        
+        <!-- 1) Inbuilt Collection
+        			b)	Own Impl			
+         				i) throgh Standalone List 			
+         		====================================	-->
+       <!--  
+       <bean id="emp" class="com.app.Employee">
+        	<property name="setOfDefaultBooks" ref="set"></property>
+        	<constructor-arg name="setOfDefaultBooks" ref="set"></constructor-arg>
+        </bean>
+        <util:set id="set" set-class="java.util.HashSet">
+        	<value>JAVA</value>
+        	<value>PYTHON</value>
+        	<value>JS</value>
+        </util:set> -->
+        
+        <!-- 1) Inbuilt Collection
+        			b)	Own Impl			
+         				ii) throgh Seprate Bean Tag (Custom Collection)			
+         		=========================================================	-->
+        <bean id="emp" class="com.app.Employee">
+        	<!-- <property name="setOfDefaultBooks" ref="set"></property> -->
+        	<constructor-arg name="setOfDefaultBooks" ref="set"></constructor-arg>
+        </bean>
+        <bean id="set" class="java.util.HashSet">
+        	<constructor-arg>
+        		<set>	<!-- <list> -->
+        			<value>JAVA</value>
+        			<value>PYTHON</value>
+        			<value>JS</value>
+        		</set>	<!-- </list -->
+        	</constructor-arg>
+        </bean>
+        
+        
+</beans>
+
