@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> 
+	<!-- bean definitions here -->
+	
+	
+	<!-- Bydefault List -->
+	<!-- 
+	<bean id="myCar" class="com.mainapp.Car">
+		<property name="price" value="992309"/>
+		<property name="model" value="tata"/>
+	</bean>
+	<bean id="emp" class="com.mainapp.Employee">
+		<property name="account" value="59287582"/>
+		<property name="bank">
+			<list>
+				<value>hdfc</value>
+				<value>sbi</value>
+			</list>
+		</property>
+		<property name="car" ref="myCar"/>
+	</bean>
+	 -->
+	
+	<!-- List => Standalone List -->
+	<!-- 
+	<util:list id="myList" list-class="java.util.LinkedList">
+		<value>hdfc</value>
+		<value>sbi</value>
+	</util:list>
+	<bean id="myCar" class="com.mainapp.Car">
+		<property name="price" value="992309"/>
+		<property name="model" value="tata"/>
+	</bean>
+	<bean id="emp" class="com.mainapp.Employee">
+		<property name="account" value="90205"/>
+		<property name="bank" ref="myList"/>
+		<property name="car" ref="myCar"/>
+	</bean>
+	 -->
+	
+	<!-- List => Custom List -->
+	<bean id="myList" class="java.util.LinkedList">
+		<constructor-arg>
+			<list>
+				<value>hdfc</value>
+				<value>sbi</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean id="myCar" class="com.mainapp.Car">
+		<property name="price" value="992309"/>
+		<property name="model" value="tata"/>
+	</bean>
+	<bean id="emp" class="com.mainapp.Employee">
+		<property name="account" value="90205"/>
+		<property name="bank" ref="myList"/>
+		<property name="car" ref="myCar"/>
+	</bean>
+	
+	
+	
+</beans>

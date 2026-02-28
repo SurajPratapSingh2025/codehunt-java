@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> 
+	<!-- bean definitions here -->
+	<!-- Map => bydefault map -->
+	<!-- 
+	<bean id="emp" class="com.mainapp.Employee">
+		<property name="bank">
+			<map>
+				<entry key="b1" value="hdfc"/>
+				<entry key="b2" value="sbi"/>
+			</map>
+		</property>
+	</bean>
+	 -->
+	 
+	 <!-- Map => Standalone Map -->
+	 <!-- 
+	 <util:map id="myMap" map-class="java.util.HashMap">
+	 	<entry key="b1" value="hdfc"/>
+	 	<entry key="b2" value="icici"/>
+	 </util:map>
+	 <bean id="emp" class="com.mainapp.Employee">
+	 	<property name="bank" ref="myMap"/>
+	 </bean>
+	   -->
+	  
+	 <!-- Map => Custom Map -->
+	 <bean id="a1" class="com.mainapp.Tv" >
+	 	<property name="show">
+	 		<value>shaktiman</value>
+	 	</property>
+	 </bean>
+	 
+	 <bean id="a2" class="com.mainapp.Freez">
+	 	<property name="cloth">
+	 		<value>plazo</value>
+	 	</property>
+	 </bean>
+	 
+	 
+	 <bean id="myMap" class="java.util.HashMap">
+	 	<constructor-arg>
+	 		<map>
+	 			<entry key-ref="a1" value-ref="a2"/>
+	 		</map>
+	 	</constructor-arg>
+	 </bean>
+	 
+	 <bean id="emp" class="com.mainapp.Employee">
+	 	<property name="bank" ref="myMap"/>
+	 </bean>
+	  
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+</beans>
