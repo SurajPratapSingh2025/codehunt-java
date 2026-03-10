@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:insert="~{fragments/header}"></div>
+	
+	<h1>Welcome to Thymeleaf</h1>
+	<h3 th:text="${msg}"></h3>
+	
+	<h3 th:text="${#strings.toLowerCase(msg)}"></h3>
+	
+	<!-- ternary -->
+	<h3 th:text="${#strings.startsWith(msg,'Data') ? 'VALID' : 'INVALID' }"></h3>
+	
+	<!-- if else -->
+	<div th:if="${#strings.startsWith(msg,'Data')}">
+		<p>Ram is eating a mango.</p>
+		<p>and Sudhir is also.</p>
+	</div>
+	<div th:unless="${#strings.startsWith(msg,'Data')}">
+		<p>Ram is eating a tomato.</p>
+		<p>and Sudhir is also.</p>
+	</div>
+	
+	
+	<!-- primitive -->
+	<h3 th:if="${age>=18}" th:text="'Age is gretter than 18'"></h3>
+	
+	<!-- list direct method-->
+	<h1 th:text="${mycoll}"></h1>
+
+	<!-- if else bullet list -->
+	<div th:if="${#lists.isEmpty(mycoll)}">
+		<h1>My List is Empty.</h1>
+	</div>
+	<div th:unless="${#lists.isEmpty(mycoll)}">
+		<!-- bullet list -->
+		<ul>
+			<li th:each="myvar : ${mycoll} " th:text="${myvar}" >
+		</ul>
+	</div>
+	
+	
+	<!-- list direct method-->
+	<h1 th:text="${mystdcoll}"></h1>
+	
+	<!-- if else bullet list -->
+	<div th:if="${#lists.isEmpty(mystdcoll)}">
+		<h1>My List is Empty.</h1>
+	</div>
+	<div th:unless="${#lists.isEmpty(mystdcoll)}">
+		<!-- bullet list -->
+		<ul>
+			<!-- from toString() -->
+			<li th:each="obj : ${mystdcoll} " th:text="${obj}" >
+			<!-- from toGet() -->
+			<li th:each="obj : ${mystdcoll}" th:text="${'ID='+obj.id+' Name='+obj.name+' ADDRESS='+obj.address}">
+		</ul>
+	</div>
+	
+	
+	<!-- switch -->
+	<div th:switch="${sw}">
+		<p th:case="1">this is case 1</p>
+		<p th:case="2">this is case 2</p>
+		<p th:case="3">this is case 3</p>
+		<p th:case="4">this is case 4</p>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div th:insert="~{fragments/footer}"></div>
+	
+	
+</body>
+</html>
+
