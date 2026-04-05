@@ -9,5 +9,6 @@ These 6 Jars Requiired for Spring Core Project (Direct Repositories Link)
 5) # [spring-expression](https://mvnrepository.com/artifact/org.springframework/spring-expression)
 6) # [spring-jcl](https://mvnrepository.com/artifact/org.springframework/spring-jcl)
 
-Kafka with Zookeepr (3.x) -> [tgz file](https://kafka.apache.org/community/downloads/)
+Kafka with Zookeepr (3.9.x) -> [tgz file](https://kafka.apache.org/community/downloads/)
 Note: Zookeeper is used for managing cluster & metadata
+Kafka Documentation (3.9.x) => [Link](https://kafka.apache.org/39/getting-started/quickstart/)
